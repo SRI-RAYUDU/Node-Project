@@ -4,10 +4,9 @@ const dotenv = require('dotenv').config();
 
 const app = express();
 
-// Set the view engine to ejs
+
 app.set('view engine', 'ejs');
 
-// Serve static files (CSS) from the 'public' directory
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
@@ -16,7 +15,7 @@ app.get('/', (req, res) => {
 
 app.get('/weather', async (req, res) => {
   const city = req.query.city;
-  const apiKey = process.env.API_KEY; // Make sure to add your API key in the .env file
+  const apiKey = process.env.API_KEY; 
 
   const APIUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
